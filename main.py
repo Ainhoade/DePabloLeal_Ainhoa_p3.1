@@ -48,3 +48,20 @@ def get_boardgame(game_id: int):
         status_code=404,
         detail="Juego de mesa no encontrado"
     )
+
+# Actualizar un juego
+@app.put("/boardgames/{game_id}", response_model=BoardGame)
+def update_boardgame(game_id: int, updated_game: BoardGameBase):
+    for index, game in enumerate(boardgames_db):
+        if game.id == game_id:
+            new_game = BoardGame(
+                id=game_id,
+                **updated_game.dict()
+            )
+            boardgames_db[index] = new_game
+            return new_game
+
+    raise HTTPException(
+        status_code=404,
+        detail="Juego de mesa no encontrado"
+    )

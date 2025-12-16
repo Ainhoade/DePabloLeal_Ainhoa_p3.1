@@ -84,3 +84,27 @@ GET http://127.0.0.1:8000/boardgames/1
 
 ### Obtener juego por ID inexistente
 GET http://127.0.0.1:8000/boardgames/99
+
+### Actualizar juego
+PUT http://127.0.0.1:8000/boardgames/1
+Content-Type: application/json
+
+{
+  "name": "Catan",
+  "players": 5,
+  "duration": 120,
+  "cooperative": false,
+  "categories": ["Estrategia"]
+}
+
+### Actualizar juego no existente
+PUT http://127.0.0.1:8000/boardgames/99
+Content-Type: application/json
+
+{
+  "name": "Catan",
+  "players": 5,
+  "duration": 120,
+  "cooperative": false,
+  "categories": ["Estrategia"]
+}
