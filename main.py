@@ -31,3 +31,20 @@ def create_boardgame(game: BoardGame):
             )
     boardgames_db.append(game)
     return game
+
+# Obtener todos los juegos
+@app.get("/boardgames", response_model=List[BoardGame])
+def get_boardgames():
+    return boardgames_db
+
+# Obtener un juego por ID
+@app.get("/boardgames/{game_id}", response_model=BoardGame)
+def get_boardgame(game_id: int):
+    for game in boardgames_db:
+        if game.id == game_id:
+            return game
+    raise HTTPException(
+        #Errores personalizados
+        status_code=404,
+        detail="Juego de mesa no encontrado"
+    )

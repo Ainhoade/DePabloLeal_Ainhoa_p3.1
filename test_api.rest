@@ -10,3 +10,77 @@ Content-Type: application/json
   "cooperative": false,
   "categories": ["Estrategia", "Familiar"]
 }
+
+### Crear juego de mesa repetido
+POST http://127.0.0.1:8000/boardgames
+Content-Type: application/json
+
+{
+  "id": 1,
+  "name": "Catan",
+  "players": 4,
+  "duration": 90,
+  "cooperative": false,
+  "categories": ["Estrategia", "Familiar"]
+}
+
+### Crear otro juego de mesa
+POST http://127.0.0.1:8000/boardgames
+Content-Type: application/json
+
+{
+  "id": 2,
+  "name": "Carcassonne",
+  "players": 5,
+  "duration": 45,
+  "cooperative": false,
+  "categories": ["Estrategia", "Colocación de losetas"]
+}
+
+### Crear juego de mesa cooperativo
+POST http://127.0.0.1:8000/boardgames
+Content-Type: application/json
+
+{
+  "id": 3,
+  "name": "Pandemic",
+  "players": 4,
+  "duration": 60,
+  "cooperative": true,
+  "categories": ["Cooperativo", "Estrategia"]
+}
+
+### Crear juego de mesa familiar
+POST http://127.0.0.1:8000/boardgames
+Content-Type: application/json
+
+{
+  "id": 4,
+  "name": "Dixit",
+  "players": 6,
+  "duration": 30,
+  "cooperative": false,
+  "categories": ["Familiar", "Creatividad"]
+}
+
+### Crear juego de mesa de ciencia ficción
+POST http://127.0.0.1:8000/boardgames
+Content-Type: application/json
+
+{
+  "id": 5,
+  "name": "Terraforming Mars",
+  "players": 5,
+  "duration": 120,
+  "cooperative": false,
+  "categories": ["Estrategia", "Ciencia ficción"]
+}
+
+### Obtener todos los juegos
+GET http://127.0.0.1:8000/boardgames
+
+### Obtener juego por ID
+GET http://127.0.0.1:8000/boardgames/1
+
+### Obtener juego por ID inexistente
+GET http://127.0.0.1:8000/boardgames/99
