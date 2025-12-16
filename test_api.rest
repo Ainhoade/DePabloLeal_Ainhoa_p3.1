@@ -1,0 +1,12 @@
+### Crear juego de mesa
+POST http://127.0.0.1:8000/boardgames
+Content-Type: application/json
+
+{
+  "id": 1,
+  "name": "Catan",
+  "players": 4,
+  "duration": 90,
+  "cooperative": false,
+  "categories": ["Estrategia", "Familiar"]
+}
