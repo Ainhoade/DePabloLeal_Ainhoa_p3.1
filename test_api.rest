@@ -108,3 +108,9 @@ Content-Type: application/json
   "cooperative": false,
   "categories": ["Estrategia"]
 }
+
+### Eliminar juego
+DELETE http://127.0.0.1:8000/boardgames/1
+
+### Eliminar juego no existente
+DELETE http://127.0.0.1:8000/boardgames/99

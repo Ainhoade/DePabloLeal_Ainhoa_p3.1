@@ -65,3 +65,16 @@ def update_boardgame(game_id: int, updated_game: BoardGameBase):
         status_code=404,
         detail="Juego de mesa no encontrado"
     )
+
+# Eliminar un juego
+@app.delete("/boardgames/{game_id}", status_code=204)
+def delete_boardgame(game_id: int):
+    for game in boardgames_db:
+        if game.id == game_id:
+            boardgames_db.remove(game)
+            return
+
+    raise HTTPException(
+        status_code=404,
+        detail="Juego de mesa no encontrado"
+    )
